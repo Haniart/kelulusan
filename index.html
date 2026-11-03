@@ -1,0 +1,66 @@
+```html
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soal Nilai Akhir</title>
+</head>
+<body>
+
+    <h2>Perhitungan Nilai Akhir</h2>
+
+    <!-- Input Data -->
+    <label>Nama:</label><br>
+    <input type="text" id="nama"><br><br>
+
+    <label>Nilai Tugas:</label><br>
+    <input type="number" id="tugas"><br><br>
+
+    <label>Nilai UTS:</label><br>
+    <input type="number" id="uts"><br><br>
+
+    <label>Nilai UAS:</label><br>
+    <input type="number" id="uas"><br><br>
+
+    <button onclick="hitungNilai()">Hitung Nilai</button>
+
+    <h3>Hasil Perhitungan</h3>
+    <div id="hasil"></div>
+
+    <script>
+        function hitungNilai() {
+
+            // 1. Mengambil data dari HTML
+            var nama = document.getElementById("nama").value;
+            var tugas = Number(document.getElementById("tugas").value);
+            var uts = Number(document.getElementById("uts").value);
+            var uas = Number(document.getElementById("uas").value);
+
+            // 2. Hitung nilai akhir
+            var nilaiAkhir = tugas * 0.3 + uts * 0.3 + uas * 0.4;
+
+            // 3. Tentukan status lulus atau tidak
+            var status;
+
+            if (nilaiAkhir >= 75) {
+                status = "LULUS";
+            } else {
+                status = "TIDAK LULUS";
+            }
+
+            // 4. Tampilkan hasil
+            console.log("Nama        : " + nama);
+            console.log("Nilai Akhir : " + nilaiAkhir);
+            console.log("Status      : " + status);
+
+            document.getElementById("hasil").innerHTML =
+                "Nama        : " + nama + "<br>" +
+                "Nilai Akhir : " + nilaiAkhir + "<br>" +
+                "Status      : " + status;
+        }
+    </script>
+
+</body>
+</html>
+```
